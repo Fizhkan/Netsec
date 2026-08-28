@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "framework": null,
-  "outputDirectory": null,
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.3"
@@ -39,8 +37,6 @@
     "APP_SERVICES_CACHE": "/tmp/services.php",
     "VIEW_COMPILED_PATH": "/tmp",
     "SESSION_DRIVER": "cookie",
-    "LOG_CHANNEL": "stderr",
-    "DB_CONNECTION": "sqlite",
-    "DB_DATABASE": "/tmp/database.sqlite"
+    "LOG_CHANNEL": "stderr"
   }
 }
