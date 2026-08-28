@@ -1,16 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
-
-define('LARAVEL_START', microtime(true));
-
-// Siapkan folder storage di /tmp
+// Siapkan direktori storage dinamis di /tmp
 $dirs = [
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache',
     '/tmp/storage/framework/cache/data',
     '/tmp/storage/framework/sessions',
     '/tmp/storage/logs',
+    '/tmp/bootstrap/cache',
 ];
 
 foreach ($dirs as $dir) {
@@ -19,11 +16,4 @@ foreach ($dirs as $dir) {
     }
 }
 
-require __DIR__ . '/../vendor/autoload.php';
-
-$app = require_once __DIR__ . '/../bootstrap/app.php';
-
-// Atur storage path
-$app->useStoragePath('/tmp/storage');
-
-$app->handleRequest(Request::capture());
+require __DIR__ . '/../public/index.php';
