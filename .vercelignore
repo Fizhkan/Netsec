@@ -1,0 +1,11 @@
+# Raw campus material PDFs (content extracted into app)
+materi/
+
+# Development & Testing
+tests/
+phpunit.xml
+.git/
+.github/
+.editorconfig
+AGENTS.md
+CLAUDE.md
