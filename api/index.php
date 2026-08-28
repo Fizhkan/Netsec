@@ -1,6 +1,6 @@
 <?php
 
-// Siapkan folder storage di /tmp
+// Siapkan direktori storage di /tmp
 $dirs = [
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache',
@@ -16,5 +16,7 @@ foreach ($dirs as $dir) {
     }
 }
 
-// Forward request langsung ke file public/index.php Laravel
+putenv('LARAVEL_STORAGE_PATH=/tmp/storage');
+$_ENV['LARAVEL_STORAGE_PATH'] = '/tmp/storage';
+
 require __DIR__ . '/../public/index.php';
