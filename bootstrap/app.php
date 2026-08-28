@@ -10,15 +10,14 @@ $app = Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware) {
+    ->withMiddleware(function (Middleware $middleware) {
         //
     })
-    ->withExceptions(function (Exceptions) {
+    ->withExceptions(function (Exceptions $exceptions) {
         //
     })
     ->create();
 
-// Arahkan storage path ke /tmp untuk serverless runtime
 $app->useStoragePath('/tmp/storage');
 
 return $app;
