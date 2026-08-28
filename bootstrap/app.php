@@ -18,6 +18,7 @@ $app = Application::configure(basePath: dirname(__DIR__))
     })
     ->create();
 
-$app->useStoragePath('/tmp/storage');
+// Bind storage path langsung ke instance container
+$app->useStoragePath(env('APP_STORAGE', '/tmp/storage'));
 
 return $app;
