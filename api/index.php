@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-// Siapkan folder storage di /tmp
+// Buat folder storage dinamis di /tmp
 $dirs = [
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache',
@@ -21,7 +20,7 @@ foreach ($dirs as $dir) {
     }
 }
 
-// Override storage path Laravel ke /tmp
+// Override storage dan cache path ke /tmp
 $_ENV['APP_STORAGE'] = '/tmp/storage';
 $_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
 $_ENV['APP_CONFIG_CACHE'] = '/tmp/bootstrap/cache/config.php';
@@ -36,10 +35,4 @@ $app = require_once __DIR__ . '/../bootstrap/app.php';
 
 $app->useStoragePath('/tmp/storage');
 
-$kernel = $app->make(Kernel::class);
-
-$response = $kernel->handle(
-    $request = Request::capture()
-)->send();
-
-$kernel->terminate($request, $response);
+$app->handleRequest(Request::capture());
